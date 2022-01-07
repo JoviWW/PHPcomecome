@@ -3,7 +3,7 @@
 $response = array();
 $con = pg_connect(getenv("DATABASE_URL"));
 
-if (isset($_GET["codreceita"]){
+if(isset($_GET["codreceita"])){
 $codreceita = $_GET["codreceita"];
 $result = pg_query($con, "SELECT * FROM receita WHERE(codreceita = $codreceita);");
     if(!empty($result)){
@@ -34,11 +34,11 @@ $result = pg_query($con, "SELECT * FROM receita WHERE(codreceita = $codreceita);
             echo json_encode($response);
         }
 
- }    else { 
+    }  else { 
     $response["success"] = 0;
     $response["msg"] = "Codigo de receita nao recebido.";
     echo json_encode($response);
-
+ }
 
 pg_close($con);
 ?>
