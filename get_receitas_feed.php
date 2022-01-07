@@ -3,8 +3,8 @@
 $response = array();
 
 $con = pg_connect(getenv("DATABASE_URL"));
-pg_close($con);
-//$result = pg_query($con, "SELECT * FROM Receita ORDER BY Data desc;");
+
+$result = pg_query($con, "SELECT * FROM Receita ORDER BY Data desc;");
 
 /*if(pg_num_rows($result)>0) {
     $response["receitas"] = array();
@@ -29,4 +29,5 @@ pg_close($con);
     echo json_encode($response);
 
 }*/
+pg_close($con);
 ?>
