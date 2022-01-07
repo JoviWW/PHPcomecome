@@ -9,7 +9,7 @@ $result = pg_query($con, "SELECT * FROM receita WHERE(codreceita = 1);");
     if(!empty($result)){
         if ( pg_num_rows ($result) > 0) {
 
-          $row = pg_fetch_array($result)
+          $row = pg_fetch_array($result);
           $receita = array();
           $receita["codreceita"] = $row["codreceita"];
           $receita["nomerec"] = $row["nomerec"];
@@ -26,14 +26,15 @@ $result = pg_query($con, "SELECT * FROM receita WHERE(codreceita = 1);");
               
         } else {
             $response["success"] = 0;
-            $response["msg"] = "Produto não encontrado."
+            $response["msg"] = "Produto não encontrado.";
             echo json_encode($response);
         }
 
 }  else { 
     $response["success"] = 0;
-    $response["msg"] = "Codigo de receita nao recebido."
+    $response["msg"] = "Codigo de receita nao recebido.";
     echo json_encode($response);
+}
 }
 pg_close($con);
 ?>
