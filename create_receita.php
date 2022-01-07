@@ -9,7 +9,7 @@ $imageFileType = strtolower(pathinfo(basename($_FILES["Imagem"]["Nomerec"]), PAT
 $image_base64 = base64_encode(file_get_contents($_FILES['Imagem']['tmp_name']) );
 $imagem = 'data:image/'.$imageFileType.';base64,'.$image_base64;
 $con = pg_connect(getenv("DATABASE_URL"));
-$result = pg_query($con, "INSERT INTO Receita (Nomerec, Sobre, Preparo, Ingredientes) VALUES ('$nomerec','$sobre','$preparo','$ingredientes')");
+$result = pg_query($con, "INSERT INTO Receita (Nomerec, Sobre, Preparo, Ingredientes) VALUES ('$nomerec','$sobre','$preparo','$ingredientes');");
 if($result){
     $response["success"] = 1;
     $response["msg"] = "Produto criado com sucesso";
