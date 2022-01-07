@@ -9,8 +9,8 @@ $result = pg_query($con, "SELECT * FROM Receita ORDER BY Data desc;");
 if ( pg_num_rows ($result) > 0) {
 
     $response["receitas"] = array();
-/*
-    while ($row = pg_fetch_query($result)){
+
+    while ($row = pg_fetch_array($result)){
         $receita = array();
         $receita["id"] = $row["id"];
         $receita["Nomerec"] = $row["Nomerec"];
@@ -21,16 +21,16 @@ if ( pg_num_rows ($result) > 0) {
         array_push($response["receitas"], $receita);
 
     }
-*/  array_push($response["receitas"], "Oi");
+    
     echo json_encode($response);
 
-} /*else{
+} else{
   
     $response["success"] = 0;
     $response["msg"] = "Nao ha produtos";
     echo json_encode($response);
     
-}*/
+}
 pg_close($con);
 
 ?>
