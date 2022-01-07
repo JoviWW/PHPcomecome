@@ -12,11 +12,11 @@ if ( pg_num_rows ($result) > 0) {
 
     while ($row = pg_fetch_array($result)){
         $receita = array();
-        $receita["Codreceita"] = $row["Codreceita"];
-        $receita["Nomerec"] = $row["Nomerec"];
-        $receita["Sobre"] = $row["Sobre"];
-        $receita["Ingredientes"] = $row["Ingredientes"];
-        $receita["Preparo"] = $row["Preparo"];
+        $receita["codreceita"] = $row["codreceita"];
+        $receita["nomerec"] = $row["nomerec"];
+        $receita["sobre"] = $row["sobre"];
+        $receita["ingredientes"] = $row["ingredientes"];
+        $receita["preparo"] = $row["preparo"];
         //$receita["Imagem"] = $row["Imagem"];
         array_push($response["receitas"], $receita);
 
