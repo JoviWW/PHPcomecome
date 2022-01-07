@@ -21,7 +21,7 @@ if ( pg_num_rows ($result) > 0) {
         array_push($response["receitas"], $receita);
 
     }
-    pg_close($con);
+    
     echo json_encode($response);
 
 } else{
@@ -29,7 +29,8 @@ if ( pg_num_rows ($result) > 0) {
     $response["success"] = 0;
     $response["msg"] = "Nao ha produtos";
     echo json_encode($response);
-    pg_close($con);
+    
 }
+pg_close($con);
 
 ?>
