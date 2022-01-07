@@ -9,14 +9,14 @@ $result = pg_query($con, "SELECT * FROM receita WHERE(codreceita = 1);");
     if(!empty($result)){
         if ( pg_num_rows ($result) > 0) {
 
-          $row = pg_fetch_array($result);
+          $result = pg_fetch_array($result);
           $receita = array();
-          $receita["codreceita"] = $row["codreceita"];
-          $receita["nomerec"] = $row["nomerec"];
-          $receita["sobre"] = $row["sobre"];
-          $receita["ingredientes"] = $row["ingredientes"];
-          $receita["preparo"] = $row["preparo"];
-          $receita["data"] = $row["data"];
+          $receita["codreceita"] =  $result["codreceita"];
+          $receita["nomerec"] =  $result["nomerec"];
+          $receita["sobre"] =  $result["sobre"];
+          $receita["ingredientes"] =  $result["ingredientes"];
+          $receita["preparo"] =  $result["preparo"];
+          $receita["data"] =  $result["data"];
           //$receita["Imagem"] = $row["Imagem"];
         $response["success"] = 1;
         $response["receita"] = array();
