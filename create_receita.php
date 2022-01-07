@@ -1,8 +1,8 @@
 <?php
 
 $response = array();
-/*if(isset($_POST['Nomerec']) && isset($_POST['Preparo']) && isset($_POST['Sobre']) && isset($_POST['Ingredientes']) && isset($_FILES['Imagem'])){
-$nomerec = $_POST['Nomerec'];
+if(isset($_POST['Nomerec']) && isset($_POST['Preparo']) && isset($_POST['Sobre']) && isset($_POST['Ingredientes']) && isset($_FILES['Imagem'])){
+/*$nomerec = $_POST['Nomerec'];
 $preparo = $_POST['Preparo'];
 $sobre = $_POST['Sobre'];
 $ingredientes = $_POST['Ingredientes'];
@@ -24,7 +24,7 @@ if($result){
     pg_close($con);
     echo json_encode($response);
 }
-
+*/
 
 } else {
     $response["success"] = 0;
