@@ -1,5 +1,4 @@
 <?php
-set charset
 $response = array();
 if(isset($_POST['Nomerec']) && isset($_POST['Preparo']) && isset($_POST['Sobre']) && isset($_POST['Ingredientes']) && isset($_FILES['Imagem'])){
 $nomerec = $_POST['Nomerec'];
