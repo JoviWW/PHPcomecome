@@ -15,8 +15,6 @@ if ( pg_num_rows ($result) > 0) {
         $receita["codreceita"] = $row["codreceita"];
         $receita["nomerec"] = $row["nomerec"];
         $receita["sobre"] = $row["sobre"];
-        $receita["ingredientes"] = $row["ingredientes"];
-        $receita["preparo"] = $row["preparo"];
         //$receita["Imagem"] = $row["Imagem"];
         array_push($response["receitas"], $receita);
 
