@@ -7,7 +7,7 @@ $con = pg_connect(getenv("DATABASE_URL"));
 $result = pg_query($con, "SELECT * FROM Receita ORDER BY Data desc;");
 
 if ( pg_num_rows ($result) > 0) {
-
+    $response["success"] = 1;
     $response["receitas"] = array();
 
     while ($row = pg_fetch_array($result)){
