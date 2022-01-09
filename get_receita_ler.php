@@ -11,12 +11,10 @@ $result = pg_query($con, "SELECT * FROM receita WHERE(codreceita = $codreceita);
 
           $result = pg_fetch_array($result);
           $receita = array();
-          $receita["codreceita"] =  $result["codreceita"];
           $receita["nomerec"] =  $result["nomerec"];
           $receita["sobre"] =  $result["sobre"];
           $receita["ingredientes"] =  $result["ingredientes"];
           $receita["preparo"] =  $result["preparo"];
-          $receita["data"] =  $result["data"];
           //$receita["Imagem"] = $row["Imagem"];
         $response["success"] = 1;
         $response["receita"] = array();
