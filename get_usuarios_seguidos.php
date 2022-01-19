@@ -14,7 +14,7 @@ if ( pg_num_rows ($result) > 0) {
         $usuario = array();
         $usuario["codusu"] = $row["codusu"];
         $usuario["sobreusu"] = $row["sobreusu"];
-        //$usuario["imagem"] = $row["imagem"];
+        $usuario["imagem"] = $row["imagem"];
         array_push($response["usuarios"], $receita);
 
     }

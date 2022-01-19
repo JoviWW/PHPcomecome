@@ -5,7 +5,7 @@ $con = pg_connect(getenv("DATABASE_URL"));
 
 if(isset($_GET["codusu"])){
 $codusu = $_GET["codusu"];
-$result = pg_query($con, "SELECT * from usuario usu join favorito fav on (fav.codusufk = usu.codusu) join receita rec on (fav.codreceitafk = rec.codreceita) where usu.codusu = $codusu; ");
+$result = pg_query($con, "SELECT * from usuario usu join favorito fav on (fav.codusu = usu.codusu) join receita rec on (fav.codreceita = rec.codreceita) where usu.codusu = $codusu; ");
 if ( pg_num_rows ($result) > 0) {
     $response["success"] = 1;
     $response["receitas"] = array();
