@@ -15,7 +15,7 @@ $result = pg_query($con, "SELECT * FROM receita WHERE(codreceita = $codreceita);
           $receita["sobre"] =  $result["sobre"];
           $receita["ingrediente"] =  $result["ingrediente"];
           $receita["preparo"] =  $result["preparo"];
-          $receita["imagem"] = $row["imagem"];
+          $receita["imagem"] = $result["imagem"];
         $response["success"] = 1;
         $response["receita"] = array();
         array_push($response["receita"], $receita);
