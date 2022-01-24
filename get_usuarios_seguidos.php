@@ -12,6 +12,7 @@ if ( pg_num_rows ($result) > 0) {
 
     while ($row = pg_fetch_array($result)){
         $usuario = array();
+        $usuario["nome"] = $row["nome"];
         $usuario["codusu"] = $row["codusu"];
         $usuario["sobreusu"] = $row["sobreusu"];
         $usuario["imagem"] = $row["imagem"];
@@ -29,6 +30,11 @@ if ( pg_num_rows ($result) > 0) {
     
 }
 }
+else{
+  
+    $response["success"] = 0;
+    $response["msg"] = "Nenhum usuário está logado.";
+    echo json_encode($response);
 
 pg_close($con);
 ?>
