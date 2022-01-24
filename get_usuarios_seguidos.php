@@ -35,6 +35,6 @@ else{
     $response["success"] = 0;
     $response["msg"] = "Nenhum usuário está logado.";
     echo json_encode($response);
-
+}
 pg_close($con);
 ?>
