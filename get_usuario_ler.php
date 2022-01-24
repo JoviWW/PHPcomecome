@@ -12,7 +12,7 @@ $result = pg_query($con, "SELECT * FROM usuario WHERE(codusu = $codusu);");
           $resultnumrec = pg_query($con, "SELECT Count(*) as numrec FROM receita where(autor=$codusu);");
           $result = pg_fetch_array($result);
           $resultnumseg  = pg_fetch_array($resultnumseg );
-          $$resultnumrec = pg_fetch_array($resultnumrec);
+          $resultnumrec = pg_fetch_array($resultnumrec);
           $usario = array();
           $usario["nome"] =  $result["nome"];
           $usuario["sobre"] =  $result["sobre"];
