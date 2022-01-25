@@ -5,19 +5,19 @@ $con = pg_connect(getenv("DATABASE_URL"));
 
 if(isset($_GET["codusu"])){
 $codusu = $_GET["codusu"];
-$result = pg_query($con, "SELECT * FROM receita where codusu = $codusu;");
-if ( pg_num_rows ($result) > 0) {
+$result = pg_query($con, "SELECT * FROM receita where autor = $codusu;");
+if ( pg_num_rows($result) > 0) {
     $response["success"] = 1;
     $response["receitas"] = array();
 
-   /* while ($row = pg_fetch_array($result)){
+    while ($row = pg_fetch_array($result)){
         $receita = array();
         $receita["codreceita"] = $row["codreceita"];
         $receita["nomerec"] = $row["nomerec"];
         $receita["imagem"] = $row["imagem"];
         array_push($response["receitas"], $receita);
 
-    }*/
+    }
     
     echo json_encode($response);
 
