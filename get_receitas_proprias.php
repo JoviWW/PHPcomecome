@@ -5,7 +5,7 @@ $con = pg_connect(getenv("DATABASE_URL"));
 
 if(isset($_GET["codusu"])){
 $codusu = $_GET["codusu"];
-$result = pg_query($con, "SELECT * FROM receita where codusu = $codusu");
+$result = pg_query($con, "SELECT * FROM receita where codusu = $codusu;");
 if ( pg_num_rows ($result) > 0) {
     $response["success"] = 1;
     $response["receitas"] = array();
