@@ -14,10 +14,10 @@ $response = array();
 // check for required fields
 if (isset($_POST['newLogin']) && isset($_POST['newPassword']) && isset($_POST['nome'])) {
  
-	$newLogin = trim($_POST['newLogin']);
-	$newPassword = trim($_POST['newPassword']);
+	$newLogin = $_POST['newLogin'];
+	$newPassword = md5($_POST['newPassword']);
 	$nome = $_POST['nome'];
-		
+	
 	$usuario_existe = pg_query($con, "SELECT email FROM usuario WHERE email='$newLogin'");
 	// check for empty result
 	if (pg_num_rows($usuario_existe) > 0) {

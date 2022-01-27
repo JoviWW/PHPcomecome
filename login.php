@@ -12,7 +12,7 @@ $password = NULL;
 // Método para mod_php (Apache)
 if ( isset( $_SERVER['PHP_AUTH_USER'] ) ) {
     $username = $_SERVER['PHP_AUTH_USER'];
-    $password = $_SERVER['PHP_AUTH_PW'];
+    $password = md5($_SERVER['PHP_AUTH_PW']);
 }
 // Método para demais servers
 elseif(isset( $_SERVER['HTTP_AUTHORIZATION'])) {
