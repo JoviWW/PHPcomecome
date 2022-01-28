@@ -7,7 +7,7 @@ if(isset($_POST["codusu"]) && isset($_POST["codreceita"])){
 $codusu = $_POST['codusu'];
 $codreceita = $_POST['codreceita'];
 $con = pg_connect(getenv("DATABASE_URL"));
-$resultver = pg_query($con, "SELECT * FROM Receita ORDER BY Data desc;");
+$resultver = pg_query($con, "SELECT * FROM favorito WHERE(codusu = '$codusu' and codreceita = '$codreceita')");
 
 if ( pg_num_rows ($resultver) > 0) {
     $response["success"] = 2;
