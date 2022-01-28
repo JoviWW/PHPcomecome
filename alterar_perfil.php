@@ -17,7 +17,7 @@ if($result){
     echo json_encode($response);
 } else {
     $response["success"] = 0;
-    $response["msg"] = "Produto não criado";
+    $response["msg"] = "Erro no query";
 
     pg_close($con);
     echo json_encode($response);
@@ -26,7 +26,7 @@ if($result){
 
 } else {
      $response["success"] = 0;
-    $response["msg"] = "Produto nao criado";
+    $response["msg"] = "Faltam credenciais";
 
    
     echo json_encode($response);}
