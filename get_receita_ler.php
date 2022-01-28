@@ -9,14 +9,22 @@ $codusu = $_GET["codusu"];
 $result = pg_query($con, "SELECT * FROM receita WHERE(codreceita = $codreceita);");
     if(!empty($result)){
         if ( pg_num_rows ($result) > 0) {
-
-            $resultver = pg_query($con, "SELECT * FROM favorito WHERE(codusu = '$codusu' and codreceita = '$codreceita')");
             $receita = array();
-            if ( pg_num_rows ($resultver) > 0) 
-            {$receita["favorito"] = "1";} 
-            else { $receita["favorito"] = "0";}
-          $result = pg_fetch_array($result);
-       
+            $resultver = pg_query($con, "SELECT * FROM favorito WHERE(codusu = '$codusu' and codreceita = '$codreceita')");
+            
+            if ( pg_num_rows ($resultver) > 0){ 
+        
+            $receita["favorito"] = "1";
+          $receita["nomerec"] =  $result["nomerec"];
+          $receita["sobre"] =  $result["sobre"];
+          $receita["ingrediente"] =  $result["ingrediente"];
+          $receita["preparo"] =  $result["preparo"];
+          $receita["imagem"] = $result["imagem"];
+        $response["success"] = 1;
+        $response["receita"] = array();
+        array_push($response["receita"], $receita);
+        echo json_encode($response);} else{
+            $receita["favorito"] = "0";
           $receita["nomerec"] =  $result["nomerec"];
           $receita["sobre"] =  $result["sobre"];
           $receita["ingrediente"] =  $result["ingrediente"];
@@ -26,6 +34,9 @@ $result = pg_query($con, "SELECT * FROM receita WHERE(codreceita = $codreceita);
         $response["receita"] = array();
         array_push($response["receita"], $receita);
         echo json_encode($response);
+
+        }
+
               
         }   else {
             $response["success"] = 0;
