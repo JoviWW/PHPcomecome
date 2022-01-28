@@ -4,7 +4,7 @@ $response = array();
 if(isset($_POST["codseguido"]) && isset($_POST["codseguindo"])){
 
 
-$codseguido= $_POST['coseguido'];
+$codseguido= $_POST['codseguido'];
 $codseguindo = $_POST['codseguindo'];
 $con = pg_connect(getenv("DATABASE_URL"));
 $resultver = pg_query($con, "SELECT * FROM seguidos WHERE(seguido = '$codseguido' and seguindo = '$codseguindo')");
@@ -28,7 +28,7 @@ if($result){
 }else {
      $response["success"] = 0;
     $response["msg"] = "Parametros não atendidos";
-
+    pg_close($con);
    
     echo json_encode($response);}
 ?>
