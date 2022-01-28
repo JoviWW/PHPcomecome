@@ -11,9 +11,9 @@ $result = pg_query($con, "SELECT * FROM receita WHERE(codreceita = $codreceita);
         if ( pg_num_rows ($result) > 0) {
             
             $resultver = pg_query($con, "SELECT * FROM favorito WHERE(codusu = '$codusu' and codreceita = '$codreceita')");
-            $response["favorito"] = "0";
+            $response["favorito"] = '0';
             if ( pg_num_rows ($resultver) > 0) {
-                $response["favorito"] = "1";} 
+                $response["favorito"] = '1';} 
           $result = pg_fetch_array($result);
           $receita = array();
           $receita["nomerec"] =  $result["nomerec"];
