@@ -8,7 +8,7 @@ $imageFileType = strtolower(pathinfo(basename($_FILES["imagem"]["nomerec"]), PAT
 $image_base64 = base64_encode(file_get_contents($_FILES['imagem']['tmp_name']) );
 $imagem = 'data:image/'.$imageFileType.';base64,'.$image_base64;
 $con = pg_connect(getenv("DATABASE_URL"));
-$result = pg_query($con, "UPDATE usuario SET (nome = $nome, sobre = $sobre, imagem = $imagem) WHERE(codusu = $codusu);");
+$result = pg_query($con, "UPDATE usuario SET (nome = '$nome', sobre = '$sobre', imagem = '$imagem') WHERE(codusu = '$codusu');");
 if($result){
     $response["success"] = 1;
     $response["msg"] = "Produto criado com sucesso";
