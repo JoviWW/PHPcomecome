@@ -10,11 +10,12 @@ $result = pg_query($con, "SELECT * FROM receita WHERE(codreceita = $codreceita);
     if(!empty($result)){
         if ( pg_num_rows ($result) > 0) {
             
-            $resultver = pg_query($con, "SELECT * FROM favorito WHERE(codusu = '$codusu' and codreceita = '$codreceita')");
-            $response["favorito"] = '0';
-    
+            $resultver = pg_query($con, "SELECT Count(*) as fav FROM favorito WHERE(codusu = '$codusu' and codreceita = '$codreceita')");
+         
+            $resultver = pg_fetch_array($resultver);
           $result = pg_fetch_array($result);
           $receita = array();
+          $response["favorito"] = $resultver["fav"];
           $receita["nomerec"] =  $result["nomerec"];
           $receita["sobre"] =  $result["sobre"];
           $receita["ingrediente"] =  $result["ingrediente"];
